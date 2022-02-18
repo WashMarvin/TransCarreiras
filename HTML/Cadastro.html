@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <!-- CSS DO PROJETO -->
+    <link rel="stylesheet" type="text/css" href="../CSS/EstilosCSS.css" />
+    <!-- CSS Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
+
+    <script src="../JS/forms.js"></script>
+
+</head>
+
+<body>
+    <div>
+
+        <header>
+            <div class="topo">
+                <nav class="cabecalho">
+                    <div class="logo">
+                        <a href="./Index.html"><img src="../Imagens/TransCarreira.png" alt="Logomarca"></a>
+                    </div>
+                    <div class="menu">
+                        <ul>
+                            <li><a href="./QuemSomos.html">Quem Somos</a></li>
+                            <li><a href="./VagasEmprego.html">Vagas de emprego</a></li>
+                            <li><a href="./EmpresasTransFriendly.html">Empresas TransFriendly</a></li>
+                            <li><a href="./Cursos.html">Cursos</a></li>
+                            <li><a href="./Contato.html">Contato</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </header>
+    </div>
+
+    <main>
+
+        <section class="formulario">
+
+            <h3 class="mt-5 ">Formulário cadastro</h3>
+            <hr class="mb-5" />
+
+            <form action="/add" method="post" id="cv_form" name="form_cadastro">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <label for="name">Nome Completo:<span>*</span>
+                        </label>
+                        <input class="form-control" type="text" id="name" name="nome" required="">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <label for="cargo">Cargo Pretendido:<span>*</span>
+                        </label>
+                        <input type="text" class="form-control" id="cargo" name="cargo"
+                            placeholder="Ex: Analista de Sistemas" required="">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="nascimento"> Data de Nascimento:<span>*</span>
+                        </label>
+                        <input type="date" class="form-control" id="nascimento" name="dataNasc" required="">
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="pronome"> Pronome:
+                        </label>
+                        <select class="form-control" name="pronome">
+                            <option value="ela">Ela/Dela</option>
+                            <option value="ele">Ele/Dele</option>
+                            <option value="elu">Elu/Delu</option>
+                            <option value="ile">Ile/Dile</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="celular"> Celular:<span>*</span>
+                        </label>
+                        <input type="phone" class="form-control" id="celular" name="celular"
+                            placeholder="Ex: (00) 00000-0000" required="">
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="tel-1"> Telefone Fixo:
+                        </label>
+                        <input type="phone" class="form-control" id="tel-1" name="tel1" placeholder="Ex: 0000-0000">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="id"> RG:
+                        </label>
+                        <input type="number" class="form-control" id="id" name="identidade">
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="cpf"> CPF:<span>*</span>
+                        </label>
+                        <input type="text" class="form-control" id="cpf" name="cpf" maxlength="14"
+                            placeholder="Ex: 000.000.000-00" required="" onkeydown="javascript: validarCPF(cpf)"
+                            oninput="ValidaCPF()" ;="">
+                        <span id="erro-cpf"></span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>Habilitação:</p>
+
+                        <div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend mr-3">
+                                  <div class="input-group-text">
+                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                  </div>
+                                </div>
+                                Categoria A
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend mr-3">
+                                  <div class="input-group-text">
+                                    <input type="checkbox" aria-label="Checkbox for following text input">
+                                  </div>
+                                </div>
+                                Categoria B
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <hr/>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="cep"> CEP:<span>*</span>
+                        </label>
+                        <input name="cep" class="form-control" type="text" id="cep" value="" size="10" maxlength="8"
+                            placeholder="Ex: 00000000" onblur="pesquisacep(this.value);">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <label for="rua"> Endereço:<span>*</span>
+                        </label>
+                        <input type="address" class="form-control" readonly id="rua" name="rua" required="">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="numero">Número<span>*</span>
+                        </label>
+                        <input type="number" class="form-control" id="numero" name="numero" required="">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="bairro"> Bairro:<span>*</span>
+                        </label>
+                        <input type="address" class="form-control" readonly id="bairro" name="bairro" required="">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-5">
+                        <label for="cidade"> Cidade:<span>*</span>
+                        </label>
+                        <input type="address" class="form-control" readonly  id="cidade" name="cidade" required="">
+                    </div>
+
+                    <div class="col-md-5">
+                        <label for="uf">Estado:<span>*</span>
+                        </label>
+                        <input type="address" class="form-control" readonly id="uf" name="estado" required="">
+                    </div>
+
+                </div>
+
+
+                <hr/>
+                
+                <div class="row">
+                    <div class="col-md-8">
+                        <label for="email"> Email:<span>*</span>
+                        </label>
+                        <input type="email" class="form-control" id="email" name="email"
+                            placeholder="Ex: exemplo@exemplo.com" required="">
+                    </div>
+                </div>
+
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="senha"> Senha:<span>*</span>
+                        </label>
+                        <input type="password" class="form-control" name="senha"
+                            placeholder="*****" required="">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="confirmasenha"> Confirme sua senha:<span>*</span>
+                        </label>
+                        <input type="password" class="form-control" name="confirmasenha"
+                            placeholder="*****" required="">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <button type="submit" class="botao btn btn-lg btn-block mt-4"> Enviar </button>
+                    </div>
+                </div>
+
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+
+        <img src="../Imagens/TransCarreira.png" alt="Logo TransCarreira">
+        <p id="pFot">Copyright &copy; 2022 - by Squad 15</p>
+
+    </footer>
+
+
+</body>
+
+</html>
